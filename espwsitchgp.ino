@@ -35,7 +35,7 @@ void loop() {
  if ((digitalRead(PIN)==HIGH)&&(p1== LOW)){
   p1=HIGH;
     Serial.println("2 is high");
-    http.begin("http://192.168.43.33/1/y");  //Specify request destination
+    http.begin("http://192.168.43.33/#1Y");  //Specify request destination
     int httpCode = http.GET();   
     Serial.println(httpCode);//Send the request
  
@@ -50,7 +50,7 @@ void loop() {
     if ((digitalRead(PIN)==LOW)&&(p1==HIGH)){ 
       p1=LOW;
       Serial.println("2 is low");
-    http.begin("http://192.168.43.33/1/n");  //Specify request destination
+    http.begin("http://192.168.43.33/#1N");  //Specify request destination
    int httpCode = http.GET();                                                                  //Send the request
      Serial.println(httpCode);//Send the request
 
@@ -65,7 +65,7 @@ void loop() {
 if ((digitalRead(PIN0)==HIGH)&&(p0== LOW)){ 
   p0=HIGH;
   Serial.println("0 is high");
-    http.begin("http://192.168.43.33/0/y");  //Specify request destination
+    http.begin("http://192.168.43.33/#0Y");  //Specify request destination
     int httpCode = http.GET();                                                                  //Send the request
      Serial.println(httpCode);//Send the request
 
@@ -80,7 +80,7 @@ if ((digitalRead(PIN0)==HIGH)&&(p0== LOW)){
     if ((digitalRead(PIN0)==LOW)&&(p0== HIGH)){ 
       p0=LOW;
       Serial.println("0 is low");
- http.begin("http://192.168.43.33/0/n");  //Specify request destination
+    http.begin("http://192.168.43.33/#0N");  //Specify request destination
    int httpCode = http.GET();                                                                  //Send the request
      Serial.println(httpCode);//Send the request
 

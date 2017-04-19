@@ -15,7 +15,9 @@ void handleRoot() {
   server.send(200, "text/plain", "hello from esp8266!");
 }
 
-
+void handleNotFound(){
+  toduino.print(server.uri());
+}
  
 void setup(void){
   toduino.begin(9600);
@@ -43,41 +45,8 @@ void setup(void){
   
   server.on("/", handleRoot);
   
-  server.on("/1/y", [](){
-  server.send(200, "text/plain", "Okay -- Light is ON!");
-  toduino.println("ON1");
-  });
-   server.on("/0/y", [](){
-  server.send(200, "text/plain", "Okay -- Light is ON!");
-  toduino.println("ON0");
-  });
-  server.on("/0/n", [](){
-  server.send(200, "text/plain", "Okay -- Light is OFF!");
-  toduino.println("OFF1");
-  });
-  server.on("/1/n", [](){
-  server.send(200, "text/plain", "Okay -- Light is OFF!");
-  toduino.println("OFF0");
-  });
-   server.on("/2/y", [](){
-  server.send(200, "text/plain", "Okay -- Light is ON!");
-  toduino.println("ON2");
-  });
-  server.on("/2/n", [](){
-  server.send(200, "text/plain", "Okay -- Light is OFF!");
-  toduino.println("OFF2");
-  });
-   server.on("/3/y", [](){
-  server.send(200, "text/plain", "Okay -- Light is ON!");
-  toduino.println("ON3");
-  });
-  server.on("/3/n", [](){
-  server.send(200, "text/plain", "Okay -- Light is OFF!");
-  toduino.println("OFF3");
-  });
+  server.onNotFound ( handleNotFound );
 
-  
-  
   server.begin();
   Serial.println("HTTP server started");
 }
