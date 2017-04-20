@@ -1,11 +1,10 @@
 #include <SoftwareSerial.h>
-
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266mDNS.h>
 
-SoftwareSerial toduino(0,2); // rx,tx!!
+SoftwareSerial toduino(0,2);
 const char* ssid = "Danjo";
 const char* password = "Openadaa";
 MDNSResponder mdns;
@@ -35,9 +34,7 @@ void setup(void){
   Serial.print("Connected to ");
   Serial.println(ssid);
   Serial.print("IP address: ");
-  Serial.println(WiFi.localIP());
-  
-  
+  Serial.println(WiFi.localIP());  
   
   if (mdns.begin("esp8266", WiFi.localIP())) {
     Serial.println("MDNS responder started");
